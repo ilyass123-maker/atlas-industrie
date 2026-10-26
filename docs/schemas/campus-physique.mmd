@@ -1,0 +1,13 @@
+graph LR
+    subgraph LOCA [Technical room A, building A]
+        CCA [CC-A]
+        UPSA [UPS A]
+    end
+    subgraph LOCB [Technical room B, building B]
+        CCB [CC-B]
+        UPSB [UPS B]
+    end
+    UPSA --- CCA
+    UPSB --- CCB
+    CCA ---|North technical gallery fibre| CCB
+    CCA -.->|South outer facade fibre| CCB

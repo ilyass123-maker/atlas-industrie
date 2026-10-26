@@ -1,0 +1,27 @@
+graph TB
+    INET((Internet and ISP))
+    subgraph BatA [Building A head office and IT]
+        FWA [FW-A]
+        CCA [CC-A]
+        ACCA [ACC-A-01 to ACC-A-06]
+        SRVA [IT servers]
+    end
+    subgraph BatB [Building B production]
+        FWB [FW-B]
+        CCB [CC-B]
+        ACCB [ACC-B-01 to ACC-B-04]
+        OTB [Industrial access OT]
+        SCADA [Production supervision]
+    end
+    INET === FWA
+    FWA === CCA
+    FWA -.-> FWB
+    CCA === CCB
+    SRVA --- CCA
+    ACCA --- CCA
+    ACCB -.-> CCA
+    OTB -.-> CCA
+    ACCB --- CCB
+    OTB --- CCB
+    SCADA --- OTB
+    FWB === CCB
